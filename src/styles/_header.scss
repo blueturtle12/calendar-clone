@@ -1,10 +1,11 @@
 @import 'mixins';
 
 .header {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #E6E9E9;
     padding: 0.5em;
     overflow: hidden;
     box-sizing: content-box;
+    height: calc(5vh - 0.5em);
 }
 
 .header-left-panel{
@@ -22,21 +23,26 @@
         }
     }
 
-    &:after {
-        vertical-align: center;
+    .header__toggle-burger {
+        @include circleBackground;
+        vertical-align: middle;
     }
 
+    @media screen and (max-width: 1023px) {
+        padding: 0;
+
+        li{
+            display: inline;
+        }
+
+        .header--month {
+            display: inline;
+            margin-left: 0;
+        }
+    } 
 }
 
-.header__toggle-burger {
-    font-size: 1em;
-    padding: 0.5em;
-    border-radius: 50%;
-    cursor: pointer;
-    &:hover {
-        background: rgb(205, 204, 204);
-    }
-}
+
 
 .header__calendar-heading {
     font-size: 1.2em;
@@ -46,6 +52,10 @@
 .header--month {
     display: inline-block;
     margin-left: 5em;
+
+    .arrow {
+        vertical-align: middle;
+    }
 }
 
 .header__today {
@@ -62,15 +72,28 @@
     list-style: none;
     margin: 0;
 
+    @media screen and (max-width: 1023px) {
+        display: none;
+    } 
+
     select {
         @include select;
+        width: 6em;
     }
 
     .nav__icon {
         vertical-align: middle;
     }
 
-    li {
+    .right-panel__left, li {
         display: inline-block;
+    }
+
+    .right-panel__left {
+        margin-right: 2em;
+
+        .nav__icon {
+            @include circleBackground;
+        }
     }
 }

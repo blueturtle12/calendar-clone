@@ -19,7 +19,7 @@
         <header class="header">
             <ul class="header-left-panel">
                 <li>
-                    <span class="header__toggle-burger"> &#9776; </span>
+                    <span class="material-icons header__toggle-burger">menu</span>
                 </li>
                 <li>
                     <img src="img/calendar.png" alt="calendar" width="40px" height="40px">
@@ -30,8 +30,8 @@
                 <li>
                     <div class="header--month"> 
                         <span class="header__today">TODAY</span>
-                        <span> &lt; </span>
-                        <span> &gt; </span>
+                        <span class="material-icons arrow">keyboard_arrow_left</span>
+                        <span class="material-icons arrow">keyboard_arrow_right</span>
                         <span>August 2018</span>
                     </div>
                 </li>
@@ -39,20 +39,22 @@
             <!-- main navigation -->
             <nav class="header--nav">
                 <ul class="nav__right-panel">
-                    <li class="material-icons nav__icon">search</li>
-                    <li>
-                        <select name="interval">
-                            <option value="day">Day</option>
-                            <option value="week">Week</option>
-                            <option value="month" selected >Month</option>
-                            <option value="year">Year</option>
-                            <option value="schedule">Schedule</option>
-                            <option value="four-days">4 days</option>
-                            <option value="show-weekends">Show weekends</option>
-                            <option value="show-declined-events">Show declined events</option>
-                        </select>
-                    </li>
+                    <ul class="right-panel__left">
+                        <li class="material-icons nav__icon">search</li>
+                        <li>
+                            <select name="interval">
+                                <option value="day">Day</option>
+                                <option value="week">Week</option>
+                                <option value="month" selected >Month</option>
+                                <option value="year">Year</option>
+                                <option value="schedule">Schedule</option>
+                                <option value="four-days">4 days</option>
+                                <option value="show-weekends">Show weekends</option>
+                                <option value="show-declined-events">Show declined events</option>
+                            </select>
+                        </li>
                     <li class="material-icons nav__icon">settings</li>
+                    </ul>
                     <li class="material-icons nav__icon">apps</li>
                     <li class="material-icons nav__icon">notifications</li>
                     <li>profile</li>
@@ -60,7 +62,7 @@
             </nav>
         </header>
         <main>
-            <aside>
+            <aside class="aside-container">
                 <!-- aside calendar component-->
                 <section class="aside__calender">
                     <span>August2018</span>
@@ -72,9 +74,11 @@
                 </section>
                 <!-- aside my calendars component-->
                 <section class="aside__my-calendars">
-                    <textarea name="add-calendar">Add a friend's calendar</textarea>
-                    <span>+</span>
-                    <ul>My calendars
+                    <div>
+                        <textarea name="add-calendar">Add a friend's calendar</textarea>
+                        <span>+</span>
+                    </div>
+                    <ul class="aside__lists">My calendars
                         <li>hachem</li>
                         <li>Birthdays</li>
                         <li>Reminders</li>
@@ -83,24 +87,15 @@
                 </section>
                 <!-- aside other calendars component-->
                 <section class="aside__other">
-                        <ul>My calendars
+                        <ul class="aside__lists">My calendars
                                 <li>Holidays</li>
                         </ul>
                         <span> &#770; </span> 
                 </section>
             </aside>
             <section class="main-calendar">
-                <div class="main-calendar-grid">
-                    <div class="main-calendar-grid__headings">
-                        <div class="main-calendar-grid__headings__empty"></div>
-                        <div class="main-calendar-grid__headings__days">
-
-                        </div>
-                    </div>
-                    <div class="main-calendar-grid__presentation">
-
-                    </div>
-                </div>
+                <div class="main-calendar-grid__presentation"></div>
+                <button class="main-calendar__button">+</button>
             </section>
         </main>
         <script src="dist/bundle.js" async defer></script>

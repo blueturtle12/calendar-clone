@@ -1,0 +1,35 @@
+.aside-container {
+    text-align: center;
+    height: 40vh;
+    height: 100%;
+
+    @media screen and (min-width: 1024px) {
+        display: inline-block;
+        width: 20%;
+        //position: absolute;
+        height: 95vh;
+    }
+    .aside__calender{
+        height: 40%;
+    }
+    
+    .aside__my-calendars {
+        height: 30%;
+    }
+    
+    .aside__other {
+        height: 30%;
+    }
+}
+
+.aside-container--untoggle {
+    display: none;
+}
+
+
+
+.aside__lists {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+}
