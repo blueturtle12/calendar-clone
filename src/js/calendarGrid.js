@@ -1,6 +1,6 @@
 const calendarGrid = () => {
     let hoursGrid = document.querySelector('.main-calendar-grid__presentation');
-    const dates = [['Sun<br/>29','Mon<br/>30','Sun<br/>31','Sun<br/>Aug1','Sun<br/>2','Sun<br/>3','Sun<br/>4'],
+    const dates = [['Sun<br/>29','Mon<br/>30','Tue<br/>31','Wed<br/>Aug1','Thu<br/>2','Fri<br/>3','Sat<br/>4'],
                 ['5','6','7','8','9','10','11'],
                 ['12','13','14','15','16','17','18'],
                 ['19','20','21','22','23','24','25'],

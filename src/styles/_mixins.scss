@@ -18,3 +18,8 @@
         background: rgb(205, 204, 204);
     }
 }
+
+@mixin asideContainers {
+    border-bottom: 1px solid #E6E9E9;
+    margin-top: 1em;
+}

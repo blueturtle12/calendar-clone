@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .aside-container {
     text-align: center;
     height: 40vh;
@@ -11,13 +13,23 @@
     }
     .aside__calender{
         height: 40%;
+        @include asideContainers;
+        @media screen and (max-width: 1023px) {
+            display: none;
+        }
     }
     
     .aside__my-calendars {
         height: 30%;
+        @include asideContainers;
+        @media screen and (max-width: 1023px) {
+            height: 70%;
+            margin-top: 1em;
+        }
     }
     
     .aside__other {
+        @include asideContainers;
         height: 30%;
     }
 }
@@ -32,4 +44,34 @@
     list-style: none;
     display: inline-block;
     margin: 0;
+}
+
+/* aside calendar */
+.aside__calendar__heading {
+    margin: 1em;
+
+    .heading__left {
+        float: left;
+    }
+    .heading__right {
+        float: right;
+    }
+}
+.aside__calendar__container {
+    //text-align: center;
+    clear: both;
+    width: 100%;
+}
+.container__row {
+    margin-top: 1em;
+    //text-align: center;
+    width: 100%;
+    //display: inline-block;
+    vertical-align: middle;
+    list-style: none;
+}
+.container__row__span {
+    padding: 0.5em;
+    display: inline;
+    width: calc(100/7);
 }
