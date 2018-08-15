@@ -6,7 +6,9 @@
   "scripts": {
     "test": "test",
     "build": "webpack-dev-server --mode=development",
-    "build:prod": "webpack -p"
+    "build:prod": "webpack -p",
+    "start": "node server.js",
+    "heroku-postbuild": "webpack -p" 
   },
   "author": "hachem jadaoui",
   "license": "ISC",
@@ -25,5 +27,8 @@
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
   }
 }
