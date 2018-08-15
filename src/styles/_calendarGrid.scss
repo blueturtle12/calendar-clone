@@ -1,7 +1,8 @@
 .main-calendar {
-    position: absolute;
+    //position: absolute;
     width: 100%;
-    height: 70vh;
+    height: 60vh;
+
     .main-calendar-grid__presentation{
         height: 100%;
     }
@@ -10,7 +11,9 @@
         display: inline-block;
         //top: 56px;
         height: 95vh;
-        width: 80%;
+        width: calc(80% - 1px);
+        float: right;
+        //width: -webkit-calc(80% -4px);
     } 
     @media screen and (max-width: 1023px) {
         //bottom: 0;
@@ -19,7 +22,6 @@
 
 .main-calendar--untoggle {
     @extend .main-calendar;
-
     @media screen and (max-width: 1023px) {
         //top: 134px;
         height: 95vh;
@@ -39,9 +41,11 @@
 
 .grid__presentation__hour {
     display: inline-block;
-     border: 1px #E6E9E9 solid;
+     border-style: solid;
+     border-color: #E6E9E9;
+     border-width: 0px 0px 1px 1px;
     //padding: 0.5em 2em 0.5em 0.5em;
-    width: calc( 100%/7 - 2px);
+    width: calc( 100%/7 - 1px);
     height: 100%;
     overflow: hidden;
     vertical-align: bottom;
@@ -67,7 +71,7 @@
     width: 1.2em;
     box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12), 0 3px 5px -1px rgba(0,0,0,0.2);
     outline: none;
-
+    
     &:hover {
         opacity: 0.4;
     }

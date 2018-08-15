@@ -1,18 +1,21 @@
 @import 'mixins';
 
 .aside-container {
-    text-align: center;
-    height: 40vh;
+    
+    height: 35vh;
     height: 100%;
+    
 
     @media screen and (min-width: 1024px) {
         display: inline-block;
         width: 20%;
         //position: absolute;
         height: 95vh;
+        float: left;
     }
     .aside__calender{
         height: 40%;
+        padding: 1em;
         @include asideContainers;
         @media screen and (max-width: 1023px) {
             display: none;
@@ -21,6 +24,24 @@
     
     .aside__my-calendars {
         height: 30%;
+        padding: 1em;
+        line-height: 1.6;
+        .my-calendars__textarea span{
+            //vertical-align: middle;
+            float: right;
+            font-size: 1.5em;
+            @include circleBackground;
+        }
+        textarea {
+            border: none;
+            background: rgb(236, 238, 242);
+            outline: none;
+            font-size: 1.2em;
+            padding: 0.5em;
+            width: 80%;
+            overflow: auto;
+            resize: none;
+        }
         @include asideContainers;
         @media screen and (max-width: 1023px) {
             height: 70%;
@@ -31,6 +52,8 @@
     .aside__other {
         @include asideContainers;
         height: 30%;
+        padding: 1em;
+        line-height: 1.6;
     }
 }
 
@@ -49,29 +72,43 @@
 /* aside calendar */
 .aside__calendar__heading {
     margin: 1em;
-
+    clear: both;
+    overflow: auto;
     .heading__left {
         float: left;
+        
     }
     .heading__right {
         float: right;
+        
     }
 }
 .aside__calendar__container {
     //text-align: center;
-    clear: both;
+    //clear: both;
     width: 100%;
-}
-.container__row {
-    margin-top: 1em;
+    display: table;
+    table-layout: fixed;
     //text-align: center;
-    width: 100%;
-    //display: inline-block;
-    vertical-align: middle;
-    list-style: none;
+    //position: relative;
+
+    .container__row {
+        margin-top: 1em;
+        //text-align: center;
+        width: 100%;
+        display: table-row;
+        //list-style: none;
+
+        .container__row__span {
+            padding: 0.5em;
+            display: table-cell;
+        }
+    }
+
+    .container__row:nth-child(1) .container__row__span,
+    .container__row:last-child .container__row__span:last-child   {
+        color: #AAAAAA;
+    }
+
 }
-.container__row__span {
-    padding: 0.5em;
-    display: inline;
-    width: calc(100/7);
-}
+

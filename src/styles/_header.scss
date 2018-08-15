@@ -5,7 +5,8 @@
     padding: 0.5em;
     overflow: hidden;
     box-sizing: content-box;
-    height: calc(5vh - 0.5em);
+    height: 5vh;
+    
 }
 
 .header-left-panel{
@@ -33,6 +34,10 @@
 
         li{
             display: inline;
+            img, .header__calendar-heading {
+            
+                display:none;
+            }
         }
 
         .header--month {
@@ -71,7 +76,7 @@
 .nav__right-panel {
     list-style: none;
     margin: 0;
-
+    
     @media screen and (max-width: 1023px) {
         display: none;
     } 
