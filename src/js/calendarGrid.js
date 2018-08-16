@@ -30,16 +30,30 @@ const calendarGrid = () => {
             if( (i === 1 && j === 0) || (i === 5 && j === 4) || (i === 3 && j === 2) ) {
 
                 createBox.appendChild(dailyEvent);
-
-                dailyEvent.addEventListener("click", () => {
+                let modalOpened = false;
+                dailyEvent.addEventListener("click", (e) => {
+                   // e.stopPropagation();
+                   e.preventDefault();
                     createBox.appendChild(modalContainer);
                     openModal(modalContainer);
+                    modalOpened = true;
+                    console.log(modalOpened);
                 });
+                let kima = document.querySelector(".modal__content");
                 window.addEventListener('click', (e)=> {
-                    if(e.target == modalContainer) {
-                        closeModal(modalContainer);
-                    }
-                });
+                        if(e.target !== modalContainer ) {
+                            closeModal(modalContainer);
+                            modalOpened = false;
+                            console.log('bimka');
+                        }  else if (e.target == kima) {
+                            console.log('test');
+                        }
+                }, true);
+
+
+                
+                
+                
 
                 let modalCloseButton = document.querySelector('.modal-close'); 
                 modalCloseButton.addEventListener("click", () => {
