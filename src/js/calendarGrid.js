@@ -32,23 +32,21 @@ const calendarGrid = () => {
                 createBox.appendChild(dailyEvent);
                 let modalOpened = false;
                 dailyEvent.addEventListener("click", (e) => {
-                   // e.stopPropagation();
-                   e.preventDefault();
+                    e.stopPropagation();
                     createBox.appendChild(modalContainer);
                     openModal(modalContainer);
                     modalOpened = true;
                     console.log(modalOpened);
                 });
-                let kima = document.querySelector(".modal__content");
+                //let kima = document.querySelector(".modal__content");
                 window.addEventListener('click', (e)=> {
-                        if(e.target !== modalContainer ) {
+                    //e.stopPropagation();
+                        if(e.currentTarget !== modalContainer) {
                             closeModal(modalContainer);
                             modalOpened = false;
                             console.log('bimka');
-                        }  else if (e.target == kima) {
-                            console.log('test');
                         }
-                }, true);
+                });
 
 
                 
