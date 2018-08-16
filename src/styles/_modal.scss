@@ -1,63 +1,157 @@
 .modal-window {
     position: fixed;
-    background-color: rgba(200, 200, 200, 0.75);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
+    top: inherit;
+    right: inherit;
+    bottom: inherit;
+    left: inherit;
+    margin-left: 1em;
+    z-index: 2;
     opacity: 1;
     pointer-events: auto;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+    display: inline-block;
+    width: 400px;
+  }
+
+  .modal-window--closed {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
   }
   
   .day__event {
       display: inline-block;
-      background : green;
+      background : rgba(25, 153, 3, 0.7);
+      width: 100%;
+      padding: 0.5em;
       color: white;
   }
-
-  .grid__presentation__hour:hover + .testing {
-    color: red;
-  }
-
-  .modal-window:target {
-    opacity: 1;
-    pointer-events: auto;
-  }
   
-  .modal-window>div {
-    width: 400px;
+  .modal-window__container {
+    width: 100%;
     position: relative;
     margin: 10% auto;
-    padding: 2rem;
+    //padding: 2rem;
     background: #fff;
     color: #444;
+    box-shadow: 5px 10px 5px 5px #888888;
+
+    /* header */
+    .modal__header {
+      background: rgba(25, 153, 3, 0.7);
+      color: white;
+      padding: 0.5em;
+
+      ul {
+        list-style: none;
+        float: right;
+        display: block;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          color: #aaa;
+          font-size: 80%;
+          //position: absolute;
+          margin-right: 0.5em;
+          text-align: center;
+          margin-top: 0.5em; 
+          //width: 70px;
+          text-decoration: none;
+          color: white;
+          font-size: 1.2em;
+  
+          &:hover {
+            color: #000;
+          }
+        }
+
+      }
+
+      h1 {
+        clear: right;
+        font-size: 150%;
+        text-align: center;
+        display: block;
+      } 
+    }
+    /* end header */
+    /* content */
+    .modal__content {
+
+      .content__edit {
+        background: rgba(25, 153, 3, 1);
+        border-radius: 50%;
+        padding: 0.5em;
+        color: white;
+        font-size: 1.2em;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.40);
+        position: absolute;
+        margin: -1.2em 0 0 1em;
+      }
+
+      .container__event-list {
+        list-style: none;
+        padding: 1em;
+        margin: 0;
+        border-Bottom: 1px solid rgb(236, 238, 242);
+
+        li {
+          line-height: 2em;
+          
+          .material-icons {
+            vertical-align: middle;
+          }
+
+          span:last-child {
+            margin-left: 1em;
+          }
+
+          &:nth-child(3) {
+            span {
+              float: left;
+            }
+            .event-list__collapse {
+              display: inline-block;
+              list-style: none;
+              padding: 0;
+              margin-left: 1em;
+
+              li {
+                display: none;
+              }
+
+              &:hover {
+                li {
+                  display: list-item;
+                }
+              }
+
+            }
+          }
+        }
+      }
+
+      .content__footer {
+        padding: 1em;
+        
+        div {
+          display: inline-block;
+          float: right;
+  
+          span {
+            margin-right: 0.5em;
+          }
+        }
+      }
+      
+    }
+    /* end content */
   }
   
   .modal-window header {
     font-weight: bold;
   }
   
-  .modal-close {
-    color: #aaa;
-    line-height: 50px;
-    font-size: 80%;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top: 0;
-    width: 70px;
-    text-decoration: none;
-  }
-  
-  .modal-close:hover {
-    color: #000;
-  }
-  
-  .modal-window h1 {
-    font-size: 150%;
-    margin: 0 0 15px;
-  }
