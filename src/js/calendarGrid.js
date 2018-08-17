@@ -7,6 +7,8 @@ const calendarGrid = () => {
                 ['26','27','28','29','30','31','sep1']];
                 
     const closeModal = (modal) => {
+        modal.style.bottom = "inherit";
+        modal.style.right = "inherit";
         modal.classList.remove("modal-window");
         modal.classList.add("modal-window--closed");
     }
@@ -22,48 +24,45 @@ const calendarGrid = () => {
             let createBox = document.createElement('div');
             createBox.className = "grid__presentation__hour";
             createBox.innerHTML = "<h5 class='presentation__hour__dates'>"+dates[j][i]+"</h5>"
-            let dailyEvent = document.createElement('a');
+            let dailyEvent = document.createElement('span');
             dailyEvent.className = "day__event";
             dailyEvent.innerHTML = "open modal";
-            let modalContainer = document.querySelector("#modal");
-            
+   
             if( (i === 1 && j === 0) || (i === 5 && j === 4) || (i === 3 && j === 2) ) {
 
                 createBox.appendChild(dailyEvent);
-                let modalOpened = false;
-                dailyEvent.addEventListener("click", (e) => {
-                    e.stopPropagation();
-                    createBox.appendChild(modalContainer);
-                    openModal(modalContainer);
-                    modalOpened = true;
-                    console.log(modalOpened);
-                });
-                //let kima = document.querySelector(".modal__content");
-                window.addEventListener('click', (e)=> {
-                    //e.stopPropagation();
-                        if(e.currentTarget !== modalContainer) {
-                            closeModal(modalContainer);
-                            modalOpened = false;
-                            console.log('bimka');
-                        }
-                });
-
-
                 
-                
-                
-
-                let modalCloseButton = document.querySelector('.modal-close'); 
-                modalCloseButton.addEventListener("click", () => {
-                    closeModal(modalContainer);
-                });
-
             }
             
             createDiv.appendChild(createBox);
         }
         hoursGrid.appendChild(createDiv);
-    }   
+    }
+    let modalContainer = document.querySelector("#modal");
+    hoursGrid.addEventListener("click", (e) => {
+        if(e.target.className === "day__event") {
+            modalContainer.classList.remove("modal-window--closed");
+            modalContainer.classList.add("modal-window");
+            e.target.parentNode.appendChild(modalContainer);
+            let rect = modalContainer.getBoundingClientRect()
+            if(rect.bottom >= window.innerHeight) {
+                modalContainer.style.bottom = "0";
+            } 
+            if (rect.right >= window.innerWidth ) {
+                modalContainer.style.right = "0";
+            } 
+            
+        } 
+    });
+    
+    hoursGrid.addEventListener("click", (e) => {
+        if(e.target.className !== "modal-window" && e.target.className !== "day__event" ) {
+            closeModal(modalContainer);
+        } else if ( e.target.className === "modal-close" ) {
+            closeModal(modalContainer);
+        }
+
+    });
 }
 
 
